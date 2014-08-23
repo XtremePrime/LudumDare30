@@ -49,6 +49,8 @@
 		<Unit filename="src/entity.h" />
 		<Unit filename="src/gameengine.cpp" />
 		<Unit filename="src/gameengine.h" />
+		<Unit filename="src/gamemap.cpp" />
+		<Unit filename="src/gamemap.h" />
 		<Unit filename="src/inputhandler.cpp" />
 		<Unit filename="src/inputhandler.h" />
 		<Unit filename="src/introstate.cpp" />
@@ -56,7 +58,12 @@
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/player.h" />
+		<Unit filename="src/resourcemanager.cpp" />
+		<Unit filename="src/resourcemanager.h" />
 		<Unit filename="src/state.h" />
+		<Unit filename="src/tiles/grasstile.cpp" />
+		<Unit filename="src/tiles/grasstile.h" />
+		<Unit filename="src/tiles/tile.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

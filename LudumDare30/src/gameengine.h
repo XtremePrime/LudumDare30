@@ -4,14 +4,19 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#include "gamemap.h"
+#include "resourcemanager.h"
+
 class State;
 class GameEngine {
 private:
     sf::RenderWindow _window;
+    GameMap _map;
+    ResourceManager _resource;
 	bool _running;
 	std::vector<State*> _state_stack;
 public:
-	sf::RenderWindow* window(){ return &_window; }
+	sf::RenderWindow* get_window(){ return &_window; }
 	void init();
 	void cleanup();
 
@@ -23,7 +28,7 @@ public:
 	void push_state(State* state);
 	void pop_state();
 
-	bool running() { return _running; }
+	bool is_running() { return _running; }
 	void quit() {
 		_running = false;
 		_window.close();

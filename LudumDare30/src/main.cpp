@@ -10,7 +10,7 @@ int main()
 
     game.change_state(IntroState::instance());
 
-    while(game.running()){
+    while(game.is_running()){
         game.handle_events();
         game.update();
         game.draw();

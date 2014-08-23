@@ -1,15 +1,20 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "gamemap.h"
 #include "gameengine.h"
 #include "state.h"
+
+#include "tiles/grasstile.h"
+
 using namespace std;
 
 void GameEngine::init(){
     _window.create(sf::VideoMode(300,300), "Untitled game", sf::Style::Titlebar | sf::Style::Close);
     _window.setFramerateLimit(60);
-    GameMap map;
+
+    _map.register_type(new GrassTileType());
+
+    _map.generate_map(_resource.get_image_filename("map1"));
 }
 void GameEngine::cleanup(){
 	_window.close();
@@ -25,15 +30,18 @@ void GameEngine::handle_events(){
     		case sf::Event::KeyPressed:
                 if(event.key.code == sf::Keyboard::Escape)
                     quit();
+                break;
     		case sf::Event::Closed:
 				//window.close();
     			quit();
 				break;
+            default:
+                break;
 		}
 	}
 
 	//- Letting the state take over the event handling
-	_state_stack.back()->handle_events(this);
+	_state_stack.back()->handle_events(this, event);
 }
 void GameEngine::update(){
 	_state_stack.back()->update(this);

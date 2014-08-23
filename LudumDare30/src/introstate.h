@@ -9,13 +9,13 @@ private:
 public:
 	static IntroState* instance();
     ~IntroState(){
-    	
+
     }
 
 	virtual void init();
 	virtual void cleanup();
 
-	virtual void handle_events(GameEngine* game);
+	virtual void handle_events(GameEngine* game, sf::Event event);
 	virtual void update(GameEngine* game);
 	virtual void draw(GameEngine* game);
 

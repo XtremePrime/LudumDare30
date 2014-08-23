@@ -10,7 +10,7 @@ public:
 	virtual void init() = 0;
 	virtual void cleanup() = 0;
 
-	virtual void handle_events(GameEngine* game) = 0;
+	virtual void handle_events(GameEngine* game, sf::Event event) = 0;
 	virtual void update(GameEngine* game) = 0;
 	virtual void draw(GameEngine* game) = 0;
 

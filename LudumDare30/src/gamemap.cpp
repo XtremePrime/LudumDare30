@@ -6,6 +6,11 @@
 #include "gamemap.h"
 using namespace std;
 
+const int GameMap::TILE_ROW = 30;
+const int GameMap::TILE_COL = 40;
+const int GameMap::TILE_WIDTH = 16;
+const int GameMap::TILE_HEIGHT = 16;
+
 GameMap::GameMap(){
  	_tiles = new Tile*[TILE_COL*TILE_ROW];
 }
@@ -15,7 +20,7 @@ GameMap::~GameMap(){
 void GameMap::set(int x, int y, Tile* tile){
     _tiles[y * TILE_ROW + x] = tile;
 }
-Tile* GameMap::get(int x, int y){
+Tile* GameMap::get(int x, int y) const{
     return _tiles[y * TILE_ROW + x];
 }
 void GameMap::generate_map(const string& filename){

@@ -15,27 +15,25 @@ void IntroState::cleanup(){
 
 }
 
-void IntroState::handle_events(GameEngine* game){
-    sf::Event event;
-    while(game->window()->pollEvent(event))
+void IntroState::handle_events(GameEngine* game, sf::Event event){
+    switch(event.type)
     {
-    	switch(event.type)
-    	{
-    		case sf::Event::KeyPressed:
-	            if(event.key.code == sf::Keyboard::Return){
-	                //- Enter menu option
-	            }
-	            else if(event.key.code == sf::Keyboard::Up
-	            	|| event.key.code == sf::Keyboard::W){
-	            	//- Move menu cursor up
-	            }
-	            else if(event.key.code == sf::Keyboard::Down
-	            	|| event.key.code == sf::Keyboard::S){
-	            	//- Move menu cursor down
-	            }
-	            break;
-		}
-	}
+        case sf::Event::KeyPressed:
+            if(event.key.code == sf::Keyboard::Return){
+                //- Enter menu option
+            }
+            else if(event.key.code == sf::Keyboard::Up
+                || event.key.code == sf::Keyboard::W){
+                //- Move menu cursor up
+            }
+            else if(event.key.code == sf::Keyboard::Down
+                || event.key.code == sf::Keyboard::S){
+                //- Move menu cursor down
+            }
+            break;
+        default:
+            break;
+    }
 }
 void IntroState::update(GameEngine* game){
 

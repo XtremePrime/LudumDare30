@@ -8,10 +8,10 @@ class Tile;
 class TileType;
 class GameMap {
 private:
-	const int TILE_ROW = 30;
-	const int TILE_COL = 40;
-	const int TILE_WIDTH = 16;
-	const int TILE_HEIGHT = 16;
+	static const int TILE_ROW;
+	static const int TILE_COL;
+	static const int TILE_WIDTH;
+	static const int TILE_HEIGHT;
 
 	std::vector<TileType*> _registered_tile_types;
 	Tile** _tiles;
@@ -26,7 +26,7 @@ public:
 	}
 	void generate_map(const std::string& filename);
 
-	Tile* get(int x, int y);
+	Tile* get(int x, int y) const;
 };
 
 
