@@ -2,6 +2,7 @@
 #define INTROSTATE_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include "state.h"
 #include "inputhandler.h"
 
@@ -26,7 +27,7 @@ public:
 	virtual void cleanup();
 
 	virtual void handle_events(GameEngine* game, sf::Event event);
-	virtual void update(GameEngine* game);
+	virtual void update(GameEngine* game, sf::Time deltaTime);
 	virtual void draw(GameEngine* game);
 
  	virtual void pause();

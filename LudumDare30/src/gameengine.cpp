@@ -12,6 +12,8 @@ void GameEngine::init(){
     _window.create(sf::VideoMode(GAME_WIDTH,GAME_HEIGHT), "Untitled game", sf::Style::Titlebar | sf::Style::Close);
     _window.setFramerateLimit(60);
 
+    _running = true;
+
 //    _map.register_type(new GrassTileType());
 
 //    _map.generate_map(_resource.get_image_filename("map1"));
@@ -38,13 +40,12 @@ void GameEngine::handle_events(){
             default:
                 break;
 		}
-		
 		//- Letting the state take over the event handling
 		_state_stack.back()->handle_events(this, event);
 	}
 }
-void GameEngine::update(){
-	_state_stack.back()->update(this);
+void GameEngine::update(sf::Time deltaTime){
+	_state_stack.back()->update(this, deltaTime);
 }
 void GameEngine::draw(){
 	_state_stack.back()->draw(this);

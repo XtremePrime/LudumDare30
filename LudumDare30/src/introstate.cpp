@@ -37,9 +37,9 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
             }
             case 1: // Quit game
             {
-                game->quit();
+                //game->quit();
                 break;
-            }   
+            }
         }
     }
 
@@ -56,7 +56,7 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
 
     std::cout << _menu_item << " ";
 }
-void IntroState::update(GameEngine* game){
+void IntroState::update(GameEngine* game, sf::Time deltaTime){
 
 }
 void IntroState::draw(GameEngine* game){

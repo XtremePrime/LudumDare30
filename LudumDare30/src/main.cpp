@@ -10,9 +10,14 @@ int main()
 
     game.change_state(IntroState::instance());
 
+
+    sf::Clock clock;
+
     while(game.is_running()){
+        sf::Time deltaTime = clock.restart();
+
         game.handle_events();
-        game.update();
+        game.update(deltaTime);
         game.draw();
     }
     game.cleanup();

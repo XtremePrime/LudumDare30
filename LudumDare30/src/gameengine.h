@@ -3,6 +3,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 
 #include "gamemap.h"
 //#include "resourcemanager.h"
@@ -23,7 +24,7 @@ public:
 	void cleanup();
 
 	void handle_events();
-	void update();
+	void update(sf::Time deltaTime);
 	void draw();
 
 	void change_state(State* state);
