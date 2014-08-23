@@ -43,9 +43,8 @@ void IntroState::init(){
     _quit.setPosition(50, 150);
 
     //Audio management
-    sf::SoundBuffer buffer;
-    buffer.loadFromFile("res/sfx/Button_Up.wav");   _btn_up.setBuffer(buffer);
-    buffer.loadFromFile("res/sfx/Button_Down.wav"); _btn_down.setBuffer(buffer);
+    _btn_up_bfr.loadFromFile("res/sfx/Button_Up.wav");   _btn_up.setBuffer(_btn_up_bfr);
+    _btn_up_bfr.loadFromFile("res/sfx/Button_Down.wav"); _btn_down.setBuffer(_btn_down_bfr);
 
     // if(!buffer.loadFromFile("res/sfx/Button_Up.wav"))
     //     std::cout << "res/sfx/Button_Up.wav" << std::endl;

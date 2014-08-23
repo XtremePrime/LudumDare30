@@ -22,6 +22,8 @@ private:
 	sf::CircleShape _selector;
 
 	//Audio variables
+	sf::SoundBuffer _btn_up_bfr;
+	sf::SoundBuffer _btn_down_bfr;
 	sf::Sound _btn_up;
 	sf::Sound _btn_down;
 
