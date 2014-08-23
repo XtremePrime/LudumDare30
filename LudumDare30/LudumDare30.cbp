@@ -13,16 +13,11 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add library="sfml-audio-d" />
-					<Add library="sfml-main-d" />
 					<Add library="sfml-graphics-d" />
-					<Add library="sfml-system-d" />
 					<Add library="sfml-window-d" />
-					<Add library="sfml-network-d" />
-					<Add directory="lib" />
+					<Add library="sfml-system-d" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -35,12 +30,19 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add directory="include" />
 		</Compiler>
+		<Linker>
+			<Add directory="lib" />
+		</Linker>
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/statemanager.cpp" />
 		<Unit filename="src/statemanager.h" />
