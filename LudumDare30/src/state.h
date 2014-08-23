@@ -2,6 +2,7 @@
 #define STATE_H
 #include <vector>
 #include "gameengine.h"
+#include <SFML/Window.hpp>
 
 class State {
 private:
