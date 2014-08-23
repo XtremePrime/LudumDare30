@@ -39,7 +39,7 @@ void GameState::update(GameEngine* game, sf::Time delta){
     _player.update(delta);
 }
 void GameState::draw(GameEngine* game){
-    _player.draw(*(game->get_window()));
+    _player.draw(game->get_window());
 }
 
 void GameState::pause(){

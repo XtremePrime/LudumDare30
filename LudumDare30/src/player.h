@@ -12,7 +12,7 @@ class Player : public Entity
         Player();
         virtual ~Player();
 
-        void draw(sf::RenderWindow &window);
+        void draw(sf::RenderWindow* window);
         void update(sf::Time deltaTime);
 
         bool move();

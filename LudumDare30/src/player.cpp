@@ -25,12 +25,12 @@ Player::~Player()
 void Player::update(sf::Time deltaTime)
 {
 	Entity::update(deltaTime);
-
+    _sprite.update(deltaTime);
 }
 
-void Player::draw(sf::RenderWindow &window)
+void Player::draw(sf::RenderWindow* window)
 {
     cout << "d ";
-	window.draw(_sprite);
+	window->draw(_sprite);
 }
 

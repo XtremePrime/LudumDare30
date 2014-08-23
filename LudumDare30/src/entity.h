@@ -11,7 +11,7 @@ class Entity
         virtual ~Entity();
 
         virtual void update(sf::Time deltaTime);
-        virtual void draw(sf::RenderWindow &window) = 0;
+        virtual void draw(sf::RenderWindow* window) = 0;
     protected:
     	int height, width;
     private:
