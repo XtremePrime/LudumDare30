@@ -14,8 +14,12 @@ private:
 	short int _menu_item = 0; // 0 = top option
 	const short int _TOTAL_MENU_ITEMS = 1;
 
+	// Drawing variables
 	sf::Font _font;
-	sf::Text _msg;
+	sf::Text _title;
+	sf::Text _start;
+	sf::Text _quit;
+	sf::Sphere _selector;
 
 public:
 	static IntroState* instance();
