@@ -20,7 +20,7 @@ int main()
     		}
     	}
 
-    	window.draw();
+    	window.display();
     	window.clear();
     }
 
