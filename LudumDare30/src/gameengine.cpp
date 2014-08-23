@@ -14,6 +14,23 @@ void GameEngine::cleanup(){
 }
 
 void GameEngine::handle_events(){
+	//- Handling the main window events first
+    sf::Event event;
+    while(_window.pollEvent(event))
+    {
+    	switch(event.type)
+    	{
+    		case sf::Event::KeyPressed:
+                if(event.key.code == sf::Keyboard::Escape)
+                    quit();
+    		case sf::Event::Closed:
+				//window.close();
+    			quit();
+				break;
+		}
+	}
+
+	//- Letting the state take over the event handling
 	_state_stack.back()->handle_events(this);
 }
 void GameEngine::update(){
@@ -21,6 +38,8 @@ void GameEngine::update(){
 }
 void GameEngine::draw(){
 	_state_stack.back()->draw(this);
+	//_window.draw();
+    _window.clear();
 }
 
 void GameEngine::change_state(State* state){
