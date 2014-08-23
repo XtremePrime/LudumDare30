@@ -20,9 +20,9 @@ public:
 	void change_state(GameEngine* game, State* state){
 		game->change_state(state);
 	}
-	virtual ~State() = 0;
+	virtual ~State(){};
 protected:
     State(){}
 };
-inline State::~State(){}
+
 #endif // STATE_H
