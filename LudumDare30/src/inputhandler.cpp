@@ -2,12 +2,12 @@
 
 void InputHandler::update(sf::Event event)
 {
-	this->event = event;
+	this->_event = event;
 }
 
 bool InputHandler::key_pressed(sf::Keyboard::Key key)
 {
-	return ((event.key.code == key) && ((event.type == sf::Event::KeyPressed)));
+	return ((_event.key.code == key) && ((_event.type == sf::Event::KeyPressed)));
 }
 
 bool InputHandler::key_pressed(std::vector<sf::Keyboard::Key> keys)
@@ -22,7 +22,7 @@ bool InputHandler::key_pressed(std::vector<sf::Keyboard::Key> keys)
 
 bool InputHandler::key_released(sf::Keyboard::Key key)
 {
-	return ((event.key.code == key) && (event.type == sf::Event::KeyReleased));
+	return ((_event.key.code == key) && (_event.type == sf::Event::KeyReleased));
 }
 
 bool InputHandler::key_released(std::vector<sf::Keyboard::Key> keys)
