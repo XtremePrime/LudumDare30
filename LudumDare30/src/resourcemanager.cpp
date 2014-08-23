@@ -46,15 +46,15 @@ AnimatedSprite* ResourceManager::get_sprite(string request, string animation, in
 
 Animation* ResourceManager::get_animation(string request, string animation, int sprite_width, int sprite_height){
 	string filename = get_sprite_filename(request, animation);
-	sf::Texture texture;
-	if(!texture.loadFromFile(filename)){
+	sf::Texture* texture = new sf::Texture();
+	if(!texture->loadFromFile(filename)){
 		cout << "Couldn't load sprite '" << filename << "'" << endl;
 		return NULL;
 	}
 
 	Animation* sprite_animation = new Animation();
-	sprite_animation->set_sprite_sheet(texture);
-	sf::Vector2u size = texture.getSize();
+	sprite_animation->set_sprite_sheet(*texture);
+	sf::Vector2u size = texture->getSize();
 	if(size.y == 0 || size.y % sprite_width != 0
 		|| size.x == 0 || size.x % sprite_height != 0){
 		cout << "Mismatched sprite sizes for '" << filename << "'" << endl;
