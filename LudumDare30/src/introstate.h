@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include <SFML/Audio.hpp>
 #include "state.h"
 #include "inputhandler.h"
 
@@ -20,6 +21,10 @@ private:
 	sf::Text _start;
 	sf::Text _quit;
 	sf::CircleShape _selector;
+
+	//Audio variables
+	sf::Sound _btn_up;
+	sf::Sound _btn_down;
 
 	void move_selector(int idx);
 public:
