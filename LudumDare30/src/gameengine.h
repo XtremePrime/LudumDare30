@@ -1,8 +1,9 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include <vector>
-#include "state.h"
+#include <SFML/Graphics.hpp>
 
+class State;
 class GameEngine {
 private:
     sf::RenderWindow _window;

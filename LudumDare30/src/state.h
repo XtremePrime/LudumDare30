@@ -19,6 +19,9 @@ public:
 	void change_state(GameEngine* game, State* state){
 		game->change_state(state);
 	}
+	virtual ~State(){
+
+	}
 protected:
 	State(){}
 };

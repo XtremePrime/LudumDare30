@@ -1,13 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "gameengine.h"
+#include "introstate.h"
 
 int main()
 {
     GameEngine game;
     game.init();
 
-    game.ChangeState(IntroState::instance());
+    game.change_state(IntroState::instance());
 
     while(game.running()){
         game.handle_events();
