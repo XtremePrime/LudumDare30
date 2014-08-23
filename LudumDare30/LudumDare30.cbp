@@ -15,6 +15,7 @@
 					<Add option="-g" />
 					<Add directory="include" />
 					<Add directory="src" />
+					<Add directory="src/" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-audio-d" />
@@ -34,6 +35,8 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="src" />
+					<Add directory="include" />
+					<Add directory="src/" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -43,16 +46,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="src/InputHandler.h" />
 		<Unit filename="src/entity.cpp" />
 		<Unit filename="src/entity.h" />
 		<Unit filename="src/gameengine.cpp" />
 		<Unit filename="src/gameengine.h" />
 		<Unit filename="src/inputhandler.cpp" />
 		<Unit filename="src/inputhandler.h" />
-		<Unit filename="src/introstate.cpp" />
 		<Unit filename="src/introstate.h" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/state.cpp" />
+		<Unit filename="src/player.cpp" />
+		<Unit filename="src/player.h" />
 		<Unit filename="src/state.h" />
 		<Extensions>
 			<code_completion />
