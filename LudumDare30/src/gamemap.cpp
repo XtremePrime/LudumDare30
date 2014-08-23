@@ -4,6 +4,7 @@
 
 #include "tile.h"
 #include "gamemap.h"
+#include "resourcemanager.h"
 using namespace std;
 
 const int GameMap::TILE_ROW = 30;
@@ -15,7 +16,17 @@ GameMap::GameMap(){
  	_tiles = new Tile*[TILE_COL*TILE_ROW];
 }
 GameMap::~GameMap(){
-
+	if(_tiles != NULL){
+		for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
+		{
+			if(_tiles[i] != NULL){
+				delete _tiles[i];
+				_tiles[i] = NULL;
+			}
+		}
+		delete[] _tiles;
+		_tiles = NULL;
+	}
 }
 void GameMap::set(int x, int y, Tile* tile){
     _tiles[y * TILE_ROW + x] = tile;
@@ -23,9 +34,9 @@ void GameMap::set(int x, int y, Tile* tile){
 Tile* GameMap::get(int x, int y) const{
     return _tiles[y * TILE_ROW + x];
 }
-void GameMap::generate_map(const string& filename){
-	sf::Image img;
-	img.loadFromFile(filename);
+void GameMap::generate_map(const string& map){
+	ResourceManager* res = ResourceManager::instance();
+	sf::Image img = *res->get_image(map);
 
 	sf::Vector2u size = img.getSize();
 	for (size_t y = 0; y < size.y; ++y){

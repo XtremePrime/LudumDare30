@@ -8,6 +8,7 @@ private:
 protected:
 	Tile(){}
 public:
+	virtual ~Tile(){}
 	virtual void handle_event(GameEngine* game) = 0;
 	virtual void update(GameEngine* game) = 0;
 	virtual void draw(GameEngine* game) = 0;
