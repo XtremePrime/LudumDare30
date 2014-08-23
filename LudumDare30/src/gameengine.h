@@ -1,12 +1,13 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include <vector>
-
+#include "state.h"
 
 class GameEngine {
 private:
+    sf::RenderWindow _window;
 	bool _running;
-	std::vector<State*> state_stack;
+	std::vector<State*> _state_stack;
 public:
 	void init();
 	void cleanup();
