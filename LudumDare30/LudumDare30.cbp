@@ -43,8 +43,11 @@
 		</Compiler>
 		<Unit filename="src/gameengine.cpp" />
 		<Unit filename="src/gameengine.h" />
+		<Unit filename="src/gamemap.h" />
 		<Unit filename="src/inputhandler.cpp" />
 		<Unit filename="src/inputhandler.h" />
+		<Unit filename="src/introstate.cpp" />
+		<Unit filename="src/introstate.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/state.h" />
 		<Extensions>
