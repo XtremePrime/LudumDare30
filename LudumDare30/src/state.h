@@ -8,7 +8,7 @@ class State {
 private:
 public:
 	virtual void init() = 0;
-	virtual void cleanup();
+	virtual void cleanup() = 0;
 
 	virtual void handle_events(GameEngine* game) = 0;
 	virtual void update(GameEngine* game) = 0;
@@ -20,11 +20,9 @@ public:
 	void change_state(GameEngine* game, State* state){
 		game->change_state(state);
 	}
-	virtual ~State(){
-
-	}
+	virtual ~State() = 0;
 protected:
-	State(){}
+    State(){}
 };
-
+inline State::~State(){}
 #endif // STATE_H
