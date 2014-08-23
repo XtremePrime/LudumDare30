@@ -3,3 +3,5 @@ obj
 *.sublime-*
 *.depend
 *.layout
+*.ase
+LudumDare30/res/*.*
