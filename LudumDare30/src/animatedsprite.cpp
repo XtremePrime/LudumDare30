@@ -177,17 +177,14 @@ void AnimatedSprite::update(sf::Time delta_time)
 
 void AnimatedSprite::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    cout << "w";
     if (_animation && _texture)
     {
-        cout << "a";
         states.transform *= getTransform();
         if(_is_flipped) {
-            cout << "s";
-            states.transform.scale(1.0, -1.0);
+            states.transform.scale(-1.0, 1.0);
+            states.transform.translate(get_local_bounds().width*-1, 0);
         }
         states.texture = _texture;
-        cout << "d";
         target.draw(_vertices, 4, sf::Quads, states);
     }
 }

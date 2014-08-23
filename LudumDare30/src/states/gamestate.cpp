@@ -23,6 +23,7 @@ void GameState::cleanup(){
 
 void GameState::handle_events(GameEngine* game, sf::Event event){
     _input.update(event);
+    _player.handle_events(_input);
 
     //if(_input.key_pressed(sf::Keyboard::Up) || _input.key_pressed(sf::Keyboard::W))
     //{
