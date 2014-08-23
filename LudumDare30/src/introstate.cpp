@@ -28,34 +28,33 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
     _input.update(event);
 
     if(_input.key_pressed(sf::Keyboard::Return))
-        std::cout << "Return worked" << std::endl;
+    {
+        switch(_menu_item)
+        {
+            case 0: // Start Game
+            {
+                break;
+            }
+            case 1: // Quit game
+            {
+                game->quit();
+                break;
+            }   
+        }
+    }
 
-    if(_input.key_pressed(sf::Keyboard::Up)
-        || _input.key_pressed(sf::Keyboard::W))
-        std::cout << "Up worked" << std::endl;
+    if(_input.key_pressed(sf::Keyboard::Up) || _input.key_pressed(sf::Keyboard::W))
+    {
+        _menu_item++;
+        if(_menu_item > _TOTAL_MENU_ITEMS) _menu_item = 0;
+    }
+    if(_input.key_pressed(sf::Keyboard::Down) || _input.key_pressed(sf::Keyboard::S))
+    {
+        _menu_item--;
+        if(_menu_item < 0) _menu_item = _TOTAL_MENU_ITEMS;
+    }
 
-    if(_input.key_pressed(sf::Keyboard::Down)
-        || _input.key_pressed(sf::Keyboard::S))
-        std::cout << "Down worked" << std::endl;
-
-    // switch(event.type)
-    // {
-    //     case sf::Event::KeyPressed:
-    //         if(event.key.code == sf::Keyboard::Return){
-    //             std::cout << "Return worked" << std::endl;
-    //         }
-    //         else if(event.key.code == sf::Keyboard::Up
-    //             || event.key.code == sf::Keyboard::W){
-    //             //- Move menu cursor up
-    //         }
-    //         else if(event.key.code == sf::Keyboard::Down
-    //             || event.key.code == sf::Keyboard::S){
-    //             //- Move menu cursor down
-    //         }
-    //         break;
-    //     default:
-    //         break;
-    // }
+    std::cout << _menu_item << " ";
 }
 void IntroState::update(GameEngine* game){
 

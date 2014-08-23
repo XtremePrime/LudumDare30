@@ -10,6 +10,9 @@ private:
 	static IntroState* _instance;
 	InputHandler _input;
 
+	short int _menu_item = 0; // 0 = top option
+	const short int _TOTAL_MENU_ITEMS = 1;
+
 	sf::Font _font;
 	sf::Text _msg;
 
