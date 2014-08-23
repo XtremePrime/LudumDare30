@@ -1,7 +1,9 @@
-#ifndef STATEMANAGER_H
-#define STATEMANAGER_H
+#ifndef GAMEENGINE_H
+#define GAMEENGINE_H
+#include <vector>
 
-class StateManager {
+
+class GameEngine {
 private:
 	bool _running;
 	std::vector<State*> state_stack;
@@ -21,4 +23,4 @@ public:
 	void quit() { _running = false; }
 };
 
-#endif // STATEMANAGER_H
+#endif // GAMEENGINE_H
