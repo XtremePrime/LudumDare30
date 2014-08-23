@@ -1,0 +1,42 @@
+#include <fstream>
+#include <iostream>
+#include <SFML/Graphics/Image.hpp>
+
+#include "tile.h"
+#include "gamemap.h"
+using namespace std;
+
+GameMap::GameMap(){
+ 	_tiles = new Tile*[TILE_COL*TILE_ROW];
+}
+GameMap::~GameMap(){
+
+}
+void GameMap::set(int x, int y, Tile* tile){
+    _tiles[y * TILE_ROW + x] = tile;
+}
+Tile* GameMap::get(int x, int y){
+    return _tiles[y * TILE_ROW + x];
+}
+void GameMap::generate_map(const string& filename){
+	sf::Image img;
+	img.loadFromFile(filename);
+
+	sf::Vector2u size = img.getSize();
+	for (size_t y = 0; y < size.y; ++y){
+		for (size_t x = 0; x < size.x; ++x)
+		{
+			bool found = false;
+			sf::Color color = img.getPixel(x, y);
+			for (size_t i = 0; i < _registered_tile_types.size(); ++i)
+			{
+				if(_registered_tile_types[i]->has_color(color)){
+					set(x, y, _registered_tile_types[i]->make_tile());
+					found = true;
+					break;
+				}
+			}
+			if(!found) cout << "Couldn't find a corresponding tile for Color(" << color.r << "," << color.g << "," << color.b << "," << color.a << ")" << endl;
+		}
+	}
+}
