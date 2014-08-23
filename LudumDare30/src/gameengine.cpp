@@ -9,12 +9,12 @@
 using namespace std;
 
 void GameEngine::init(){
-    _window.create(sf::VideoMode(300,300), "Untitled game", sf::Style::Titlebar | sf::Style::Close);
+    _window.create(sf::VideoMode(_WIDTH,_HEIGHT), "Untitled game", sf::Style::Titlebar | sf::Style::Close);
     _window.setFramerateLimit(60);
 
-    _map.register_type(new GrassTileType());
+//    _map.register_type(new GrassTileType());
 
-    _map.generate_map(_resource.get_image_filename("map1"));
+//    _map.generate_map(_resource.get_image_filename("map1"));
 }
 void GameEngine::cleanup(){
 	_window.close();
@@ -38,17 +38,18 @@ void GameEngine::handle_events(){
             default:
                 break;
 		}
+		
+		//- Letting the state take over the event handling
+		_state_stack.back()->handle_events(this, event);
 	}
-
-	//- Letting the state take over the event handling
-	_state_stack.back()->handle_events(this, event);
 }
 void GameEngine::update(){
 	_state_stack.back()->update(this);
 }
 void GameEngine::draw(){
 	_state_stack.back()->draw(this);
-	//_window.draw();
+
+	_window.display();
     _window.clear();
 }
 
