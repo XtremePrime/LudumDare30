@@ -37,6 +37,14 @@ sf::Image* ResourceManager::get_image(string request){
 }
 AnimatedSprite* ResourceManager::get_sprite(string request, string animation, int sprite_width, int sprite_height){
 	AnimatedSprite* sprite = new AnimatedSprite();
+
+	Animation* sprite_animation = get_animation(request, animation, sprite_width, sprite_height);
+
+	sprite->set_animation(*sprite_animation);
+	return sprite;
+}
+
+Animation* ResourceManager::get_animation(string request, string animation, int sprite_width, int sprite_height){
 	string filename = get_sprite_filename(request, animation);
 	sf::Texture texture;
 	if(!texture.loadFromFile(filename)){
@@ -44,8 +52,8 @@ AnimatedSprite* ResourceManager::get_sprite(string request, string animation, in
 		return NULL;
 	}
 
-	Animation sprite_animation;
-	sprite_animation.set_sprite_sheet(texture);
+	Animation* sprite_animation = new Animation();
+	sprite_animation->set_sprite_sheet(texture);
 	sf::Vector2u size = texture.getSize();
 	if(size.y == 0 || size.y % sprite_width != 0
 		|| size.x == 0 || size.x % sprite_height != 0){
@@ -64,11 +72,11 @@ AnimatedSprite* ResourceManager::get_sprite(string request, string animation, in
 
 	for (int count = 0; count < width_count; ++count)
 	{
-		sprite_animation.add_frame(sf::IntRect(sprite_width * count, 0, sprite_width, sprite_height));
+		sprite_animation->add_frame(sf::IntRect(sprite_width * count, 0, sprite_width, sprite_height));
 	}
-	
-	return sprite;
+	return sprite_animation;
 }
+
 sf::Sound* ResourceManager::get_sound(string request){
 	sf::Sound* sound = new sf::Sound();
 	string filename = get_sound_filename(request);

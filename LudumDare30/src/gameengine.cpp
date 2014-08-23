@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "gameengine.h"
-#include "state.h"
+#include "states/state.h"
 
 #include "tiles/grasstile.h"
 

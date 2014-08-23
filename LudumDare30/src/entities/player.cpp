@@ -1,6 +1,6 @@
 #include "player.h"
 #include "entity.h"
-#include "resourcemanager.h"
+#include "../resourcemanager.h"
 #include <iostream>
 
 using namespace std;
@@ -15,6 +15,7 @@ Player::Player()
     _sprite = *ResourceManager::instance()->get_sprite("player", "walk");
     _sprite.setPosition(sf::Vector2f(100, 100));
     _sprite.play();
+    _sprite.set_looped(true);
 }
 
 Player::~Player()
@@ -30,7 +31,6 @@ void Player::update(sf::Time deltaTime)
 
 void Player::draw(sf::RenderWindow* window)
 {
-    cout << "d ";
 	window->draw(_sprite);
 }
 

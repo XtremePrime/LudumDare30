@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 #include <vector>
-#include "gameengine.h"
+#include "../gameengine.h"
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 

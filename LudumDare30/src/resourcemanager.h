@@ -7,6 +7,7 @@
 #include <SFML/Audio/Music.hpp>
 #include <string>
 
+class Animation;
 class AnimatedSprite;
 class ResourceManager {
 private:
@@ -32,6 +33,7 @@ public:
 	sf::Image* get_image(std::string request);
 	std::string get_image_filename(std::string request);
 
+	Animation* get_animation(std::string request, std::string animation, int sprite_width, int sprite_height);
 	AnimatedSprite* get_sprite(std::string request, std::string animation, int sprite_width=32, int sprite_height=32);
 	std::string get_sprite_filename(std::string request, std::string animation);
 };

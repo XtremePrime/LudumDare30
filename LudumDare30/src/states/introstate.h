@@ -5,7 +5,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
 #include "state.h"
-#include "inputhandler.h"
+#include "../inputhandler.h"
 
 class IntroState : public State{
 private:

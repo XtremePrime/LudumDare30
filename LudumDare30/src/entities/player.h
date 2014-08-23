@@ -2,7 +2,7 @@
 #define PLAYER_H
 
 #include "entity.h"
-#include "animatedSprite.h"
+#include "../animatedSprite.h"
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 

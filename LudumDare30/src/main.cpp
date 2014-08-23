@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "gameengine.h"
-#include "introstate.h"
+#include "states/introstate.h"
 
 int main()
 {

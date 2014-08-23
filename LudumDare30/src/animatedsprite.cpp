@@ -1,7 +1,10 @@
 #include "animatedsprite.h"
+#include <iostream>
+
+using namespace std;
 
 AnimatedSprite::AnimatedSprite(sf::Time frameTime, bool paused, bool looped) :
-    _animation(NULL), _frame_time(frameTime), _current_frame(0), _is_paused(paused), _is_looped(looped), _texture(NULL)
+    _animation(NULL), _frame_time(frameTime), _current_frame(0), _is_paused(paused), _is_looped(looped), _texture(NULL), _is_flipped(false)
 {
 
 }
@@ -166,11 +169,17 @@ void AnimatedSprite::update(sf::Time delta_time)
 
 void AnimatedSprite::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+    cout << "w";
     if (_animation && _texture)
     {
+        cout << "a";
         states.transform *= getTransform();
-        if(_is_flipped) states.transform.scale(1.0, -1.0);
+        if(_is_flipped) {
+            cout << "s";
+            states.transform.scale(1.0, -1.0);
+        }
         states.texture = _texture;
+        cout << "d";
         target.draw(_vertices, 4, sf::Quads, states);
     }
 }

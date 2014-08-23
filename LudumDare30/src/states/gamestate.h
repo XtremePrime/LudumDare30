@@ -3,8 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "state.h"
-#include "player.h"
-#include "inputhandler.h"
+#include "../entities/player.h"
+#include "../inputhandler.h"
 
 class GameState : public State{
 private:

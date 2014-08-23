@@ -1,6 +1,6 @@
 #include "introstate.h"
 #include "gamestate.h"
-#include "resourcemanager.h"
+#include "../resourcemanager.h"
 #include <SFML/Window.hpp>
 #include <iostream>
 
