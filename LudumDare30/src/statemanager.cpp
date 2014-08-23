@@ -4,21 +4,24 @@
 
 using namespace std;
 
-StateManager::init(){
+void GameEngine::init(){
 
 }
+void GameEngine::cleanup(){
+	
+}
 
-void StateManager::handle_events(){
+void GameEngine::handle_events(){
 	state_stack.back()->handle_events();
 }
-void StateManager::update(){
+void GameEngine::update(){
 	state_stack.back()->update();
 }
-void StateManager::draw(){
+void GameEngine::draw(){
 	state_stack.back()->draw();
 }
 
-void StateManager::change_state(State* state){
+void GameEngine::change_state(State* state){
 	// cleanup the current state
 	if ( !state_stack.empty() ) {
 		state_stack.back()->Cleanup();
@@ -29,7 +32,7 @@ void StateManager::change_state(State* state){
 	state_stack.push_back(state);
 	state_stack.back()->Init();
 }
-void StateManager::push_state(State* state){
+void GameEngine::push_state(State* state){
 	//- Pause current state
 	if ( !state_stack.empty() ) {
 		state_stack.back()->Pause();
@@ -39,7 +42,7 @@ void StateManager::push_state(State* state){
 	state_stack.push_back(state);
 	state_stack.back()->Init();
 }
-void StateManager::pop_state(){
+void GameEngine::pop_state(){
 	//- Cleanup the current state
 	if ( !state_stack.empty() ) {
 		state_stack.back()->Cleanup();
