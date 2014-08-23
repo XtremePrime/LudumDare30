@@ -8,7 +8,6 @@
 
 class IntroState : public State{
 private:
-	static IntroState* _instance;
 	InputHandler _input;
 
 	short int _menu_item = 0; // 0 = top option
@@ -22,6 +21,10 @@ private:
 	sf::CircleShape _selector;
 
 	void move_selector(int idx);
+	sf::Text _msg;
+protected:
+	static IntroState* _instance;
+	IntroState(){}
 public:
 	static IntroState* instance();
     ~IntroState(){

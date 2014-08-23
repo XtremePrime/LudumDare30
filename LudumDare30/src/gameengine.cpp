@@ -14,6 +14,8 @@ void GameEngine::init(){
 
     _running = true;
 
+    _resource = ResourceManager::instance();
+    _resource->set_dir("res");
 //    _map.register_type(new GrassTileType());
 
 //    _map.generate_map(_resource.get_image_filename("map1"));

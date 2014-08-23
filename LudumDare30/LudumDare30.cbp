@@ -62,6 +62,8 @@
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/player.h" />
+		<Unit filename="src/resourcemanager.cpp" />
+		<Unit filename="src/resourcemanager.h" />
 		<Unit filename="src/state.h" />
 		<Unit filename="src/tile.h" />
 		<Unit filename="src/tiles/grasstile.cpp" />

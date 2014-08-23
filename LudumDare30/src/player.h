@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "entity.h"
+#include "animatedSprite.h"
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
@@ -17,8 +18,9 @@ class Player : public Entity
         bool move();
     protected:
     private:
-		sf::Texture _texture;
-    	sf::Sprite _sprite;
+        AnimatedSprite _sprite;
+		//sf::Texture _texture;
+        //sf::Sprite _sprite;
 };
 
 #endif // PLAYER_H

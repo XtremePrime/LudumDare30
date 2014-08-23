@@ -44,6 +44,7 @@ private:
     std::size_t _current_frame;
     bool _is_paused;
     bool _is_looped;
+    bool _is_flipped;
     const sf::Texture* _texture;
     sf::Vertex _vertices[4];
 
@@ -59,12 +60,15 @@ public:
     void pause();
     void stop();
     void set_looped(bool looped);
+    void set_flipped(bool flipped);
     void set_color(const sf::Color& color);
     const Animation* get_animation() const;
     sf::FloatRect get_local_bounds() const;
     sf::FloatRect get_global_bounds() const;
+
     bool is_looped() const;
     bool is_playing() const;
+    bool is_flipped() const;
     sf::Time get_frame_time() const;
     void set_frame(std::size_t newFrame, bool resetTime = true);
 

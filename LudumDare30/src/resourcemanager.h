@@ -2,17 +2,32 @@
 #define RESOURCEMANAGER_H
 
 #include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/Audio/Music.hpp>
 #include <string>
 
 class AnimatedSprite;
 class ResourceManager {
 private:
     std::string _base_dir;
-public:
+protected:
+    static ResourceManager* _instance;
 	ResourceManager();
-	~ResourceManager();
+public:
+	static ResourceManager* instance();
+    virtual ~ResourceManager();
 
     void set_dir(std::string base_dir);
+
+	std::string get_sound_filename(std::string request);
+	sf::Sound* get_sound(std::string request);
+
+	std::string get_music_filename(std::string request);
+	sf::Music* get_music(std::string request);
+
+	std::string get_font_filename(std::string request);
+	sf::Font* get_font(std::string request);
 
 	sf::Image* get_image(std::string request);
 	std::string get_image_filename(std::string request);

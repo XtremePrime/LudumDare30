@@ -1,4 +1,6 @@
 #include "introstate.h"
+#include "gamestate.h"
+#include "resourcemanager.h"
 #include <SFML/Window.hpp>
 #include <iostream>
 
@@ -11,8 +13,9 @@ IntroState* IntroState::instance(){
 
 void IntroState::init(){
     //Font errorproofing
-    if(!_font.loadFromFile("res/dungeon.ttf"))
-        std::cout << "res/dungeon.ttf not loaded." << std::endl;
+    // if(!_font.loadFromFile("res/dungeon.ttf"))
+    //     std::cout << "res/dungeon.ttf not loaded." << std::endl;
+    _font = *ResourceManager::instance()->get_font("dungeon");
 
     _selector.setRadius(10.f);
     _selector.setPosition(20, 110);
@@ -54,6 +57,7 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
         {
             case 0: // Start Game
             {
+                game->push_state(GameState::instance());
                 break;
             }
             case 1: // Quit game

@@ -1,3 +1,6 @@
+#ifndef INPUTHANDLER_H
+#define INPUTHANDLER_H
+
 #include <SFML/Window.hpp>
 #include <vector>
 
@@ -17,3 +20,5 @@ public:
 private:
 	sf::Event _event;
 };
+
+#endif // INPUTHANDLER_H

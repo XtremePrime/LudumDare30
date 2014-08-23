@@ -48,6 +48,11 @@ void AnimatedSprite::set_looped(bool looped)
     _is_looped = looped;
 }
 
+void AnimatedSprite::set_flipped(bool flipped)
+{
+    _is_flipped = flipped;
+}
+
 void AnimatedSprite::set_color(const sf::Color& color)
 {
     // Update the vertices' color
@@ -85,6 +90,11 @@ bool AnimatedSprite::is_looped() const
 bool AnimatedSprite::is_playing() const
 {
     return !_is_paused;
+}
+
+bool AnimatedSprite::is_flipped() const
+{
+    return !_is_flipped;
 }
 
 sf::Time AnimatedSprite::get_frame_time() const
@@ -159,6 +169,7 @@ void AnimatedSprite::draw(sf::RenderTarget& target, sf::RenderStates states) con
     if (_animation && _texture)
     {
         states.transform *= getTransform();
+        if(_is_flipped) states.transform.scale(1.0, -1.0);
         states.texture = _texture;
         target.draw(_vertices, 4, sf::Quads, states);
     }

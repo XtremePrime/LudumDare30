@@ -6,14 +6,14 @@
 #include <SFML/System.hpp>
 
 #include "gamemap.h"
-//#include "resourcemanager.h"
+#include "resourcemanager.h"
 
 class State;
 class GameEngine {
 private:
     sf::RenderWindow _window;
     GameMap _map;
-//    ResourceManager _resource;
+    ResourceManager* _resource;
 	bool _running;
 	std::vector<State*> _state_stack;
 
