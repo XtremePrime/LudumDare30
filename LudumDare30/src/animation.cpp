@@ -2,11 +2,18 @@
 
 Animation::Animation() : _texture(NULL){}
 
+Animation::~Animation(){
+    if(_texture != NULL){
+        delete _texture;
+        _texture = NULL;
+    }
+}
+
 void Animation::add_frame(sf::IntRect rect){
 	_frames.push_back(rect);
 }
-void Animation::set_sprite_sheet(const sf::Texture& texture){
-	_texture = &texture;
+void Animation::set_sprite_sheet(const sf::Texture* texture){
+	_texture = texture;
 }
 
 const sf::Texture* Animation::get_sprite_sheet() const{

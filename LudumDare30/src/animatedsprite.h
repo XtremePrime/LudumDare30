@@ -51,12 +51,13 @@ private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 public:
     explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);
+    virtual ~AnimatedSprite();
 
     void update(sf::Time deltaTime);
-    void set_animation(const Animation& animation);
+    void set_animation(const Animation* animation);
     void set_frame_time(sf::Time time);
     void play();
-    void play(const Animation& animation);
+    void play(const Animation* animation);
     void pause();
     void stop();
     void set_looped(bool looped);

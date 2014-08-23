@@ -40,7 +40,7 @@ AnimatedSprite* ResourceManager::get_sprite(string request, string animation, in
 
 	Animation* sprite_animation = get_animation(request, animation, sprite_width, sprite_height);
 
-	sprite->set_animation(*sprite_animation);
+	sprite->set_animation(sprite_animation);
 	return sprite;
 }
 
@@ -53,7 +53,7 @@ Animation* ResourceManager::get_animation(string request, string animation, int 
 	}
 
 	Animation* sprite_animation = new Animation();
-	sprite_animation->set_sprite_sheet(*texture);
+	sprite_animation->set_sprite_sheet(texture);
 	sf::Vector2u size = texture->getSize();
 	if(size.y == 0 || size.y % sprite_width != 0
 		|| size.x == 0 || size.x % sprite_height != 0){

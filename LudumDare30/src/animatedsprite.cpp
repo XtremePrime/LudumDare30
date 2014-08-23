@@ -9,9 +9,17 @@ AnimatedSprite::AnimatedSprite(sf::Time frameTime, bool paused, bool looped) :
 
 }
 
-void AnimatedSprite::set_animation(const Animation& animation)
+AnimatedSprite::~AnimatedSprite(){
+    //- _texture is deleted by _animation
+    if(_animation != NULL){
+        delete _animation;
+        _animation = NULL;
+    }
+}
+
+void AnimatedSprite::set_animation(const Animation* animation)
 {
-    _animation = &animation;
+    _animation = animation;
     _texture = _animation->get_sprite_sheet();
     _current_frame = 0;
     set_frame(_current_frame);
@@ -27,9 +35,9 @@ void AnimatedSprite::play()
     _is_paused = false;
 }
 
-void AnimatedSprite::play(const Animation& animation)
+void AnimatedSprite::play(const Animation* animation)
 {
-    if (get_animation() != &animation)
+    if (get_animation() != animation)
         set_animation(animation);
     play();
 }

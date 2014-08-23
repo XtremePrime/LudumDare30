@@ -37,9 +37,10 @@ private:
 	const sf::Texture* _texture;
 public:
 	Animation();
+	virtual ~Animation();
 
 	void add_frame(sf::IntRect rect);
-	void set_sprite_sheet(const sf::Texture& texture);
+	void set_sprite_sheet(const sf::Texture* texture);
 	const sf::Texture* get_sprite_sheet() const;
 	std::size_t get_size() const;
 	const sf::IntRect& getFrame(std::size_t id) const;
