@@ -19,8 +19,9 @@ private:
 	sf::Text _title;
 	sf::Text _start;
 	sf::Text _quit;
-	sf::Sphere _selector;
+	sf::CircleShape _selector;
 
+	void move_selector(int idx);
 public:
 	static IntroState* instance();
     ~IntroState(){
