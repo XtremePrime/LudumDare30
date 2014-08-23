@@ -22,9 +22,14 @@ class Player : public Entity
     private:
         sf::Vector2f _movement;
         double _speed;
+        Animation* _animations[10];
         AnimatedSprite _sprite;
 		//sf::Texture _texture;
         //sf::Sprite _sprite;
+};
+
+enum AnimationState{
+    IDLE, WALK
 };
 
 #endif // PLAYER_H
