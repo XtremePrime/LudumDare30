@@ -45,6 +45,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="src/InputHandler.h" />
+		<Unit filename="src/animatedsprite.cpp" />
+		<Unit filename="src/animatedsprite.h" />
+		<Unit filename="src/animation.cpp" />
+		<Unit filename="src/animation.h" />
 		<Unit filename="src/entity.cpp" />
 		<Unit filename="src/entity.h" />
 		<Unit filename="src/gameengine.cpp" />
