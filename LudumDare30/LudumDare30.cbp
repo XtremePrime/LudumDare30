@@ -41,9 +41,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="src/gameengine.cpp" />
+		<Unit filename="src/gameengine.h" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/statemanager.cpp" />
-		<Unit filename="src/statemanager.h" />
+		<Unit filename="src/state.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
