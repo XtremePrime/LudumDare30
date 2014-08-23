@@ -1,52 +1,49 @@
-#include "InputHandler.h"
+#include "inputhandler.h"
 
 void InputHandler::update(sf::Event event)
 {
-	this->event = event
+	this->event = event;
 }
 
-bool InputHandler::key_pressed(int key)
+bool InputHandler::key_pressed(sf::Keyboard::Key key)
 {
-	return ((event.Key.Code == key) && ((event.Type == sf::Event::KeyPressed)));
+	return ((event.key.code == key) && ((event.type == sf::Event::KeyPressed)));
 }
 
-bool InputHandler::key_pressed(std::vector<int> keys)
+bool InputHandler::key_pressed(std::vector<sf::Keyboard::Key> keys)
 {
 	for(int i = 0; i < keys.size(); ++i)
 	{
-		// if(event.Key.Code == keys[i] && event.Type == sf::Event::KeyPressed)
 		if(key_pressed(keys[i]))
 			return true;
 	}
 	return false;
 }
 
-bool InputHandler::key_released(int key)
+bool InputHandler::key_released(sf::Keyboard::Key key)
 {
-	return ((event.Key.Code == key) && (event.Type == sf::Event::KeyReleased));
+	return ((event.key.code == key) && (event.type == sf::Event::KeyReleased));
 }
 
-bool InputHandler::key_released(std::vector<int> keys)
+bool InputHandler::key_released(std::vector<sf::Keyboard::Key> keys)
 {
 	for(int i = 0; i < keys.size(); ++i)
 	{
-		// if(event.Key.Code == keys[i] && event.Type == sf::Event::KeyReleased)
 		if(key_released(keys[i]))
 			return true;
 	}
 	return false;
 }
 
-bool InputHandler::key_down(sf::RenderWindow &window, int key)
+bool InputHandler::key_down(sf::Keyboard::Key key)
 {
-	return window.GetInput().IsKeyDown(key);
+	return sf::Keyboard::isKeyPressed(key);
 }
 
-bool InputHandler::key_down(sf::RenderWindow &window, std::vector<int> keys)
+bool InputHandler::key_down(std::vector<sf::Keyboard::Key> keys)
 {
 	for(int i = 0; i < keys.size(); ++i)
 	{
-		// if(window.GetInput().IsKeyDown(keys[i]))
 		if(key_down(keys[i]))
 			return true;
 	}

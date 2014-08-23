@@ -4,16 +4,16 @@
 class InputHandler
 {
 private:
-	void update();
+	void update(sf::Event event);
 
-	bool key_pressed(int key);
-	bool key_pressed(std::vector<int> keys);
+	bool key_pressed(sf::Keyboard::Key key);
+	bool key_pressed(std::vector<sf::Keyboard::Key> keys);
 
-	bool key_released(int key);
-	bool key_released(std::vector<int> keys);
+	bool key_released(sf::Keyboard::Key key);
+	bool key_released(std::vector<sf::Keyboard::Key> keys);
 
-	bool key_down(sf::RenderWindow &window, int key);
-	bool key_down(sf::RenderWindow &window, std::vector<int> keys);
+	bool key_down(sf::Keyboard::Key key);
+	bool key_down(std::vector<sf::Keyboard::Key> keys);
 public:
 	sf::Event event;
 };
