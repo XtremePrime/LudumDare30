@@ -16,8 +16,8 @@ private:
 	bool _running;
 	std::vector<State*> _state_stack;
 
-	int _WIDTH = 640, _HEIGHT = 480;
 public:
+	static const int GAME_WIDTH = 640, GAME_HEIGHT = 480;
 	sf::RenderWindow* get_window(){ return &_window; }
 	void init();
 	void cleanup();

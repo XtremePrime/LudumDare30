@@ -9,7 +9,7 @@
 using namespace std;
 
 void GameEngine::init(){
-    _window.create(sf::VideoMode(_WIDTH,_HEIGHT), "Untitled game", sf::Style::Titlebar | sf::Style::Close);
+    _window.create(sf::VideoMode(GAME_WIDTH,GAME_HEIGHT), "Untitled game", sf::Style::Titlebar | sf::Style::Close);
     _window.setFramerateLimit(60);
 
 //    _map.register_type(new GrassTileType());

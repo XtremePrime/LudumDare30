@@ -18,7 +18,7 @@ void IntroState::init(){
     _msg.setString("Untitled game");
     _msg.setCharacterSize(40);
     _msg.setColor(sf::Color(255, 255, 255));
-    _msg.setPosition(640/2-80,10);
+    _msg.setPosition(GameEngine::GAME_WIDTH/2-100, 10);
 }
 void IntroState::cleanup(){
 
@@ -30,7 +30,7 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
     if(_input.key_pressed(sf::Keyboard::Return))
         std::cout << "Return worked" << std::endl;
 
-    if(_input.key_pressed(sf::Keyboard::Up) 
+    if(_input.key_pressed(sf::Keyboard::Up)
         || _input.key_pressed(sf::Keyboard::W))
         std::cout << "Up worked" << std::endl;
 
