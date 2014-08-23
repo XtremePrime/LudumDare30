@@ -34,19 +34,21 @@ void Player::handle_events(InputHandler& handler){
     //- Cancel out the movement
     _movement = sf::Vector2f(0.f, 0.f);
 
-    if(handler.key_pressed(vector<sf::Keyboard::Key>({ sf::Keyboard::Left, sf::Keyboard::D }))){
+    if(handler.key_pressed(sf::Keyboard::Left) || handler.key_pressed(sf::Keyboard::A)){
         //- Move player left
         _sprite.play(_animations[AnimationState::WALK]);
         _movement.x -= _speed;
         _sprite.set_flipped(true);
         _sprite.set_looped(true);
+        std::cout << "Reached 1" << std::endl; 
     }
-    else if(handler.key_pressed(vector<sf::Keyboard::Key>({ sf::Keyboard::Right, sf::Keyboard::A }))){
+    else if(handler.key_pressed(vector<sf::Keyboard::Key>({ sf::Keyboard::D, sf::Keyboard::Right }))){
         //- Move player right
         _sprite.play(_animations[AnimationState::WALK]);
         _movement.x += _speed;
         _sprite.set_flipped(false);
         _sprite.set_looped(true);
+        std::cout << "Reached 2" << std::endl;
     }
     else{
         _sprite.play(_animations[AnimationState::IDLE]);
