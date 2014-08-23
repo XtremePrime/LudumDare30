@@ -1,11 +1,16 @@
 #include "entity.h"
 
-entity::entity()
+Entity::Entity()
 {
     //ctor
 }
 
-entity::~entity()
+Entity::~Entity()
 {
     //dtor
+}
+
+void Entity::update(sf::Time deltaTime)
+{
+
 }
