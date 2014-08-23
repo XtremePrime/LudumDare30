@@ -17,6 +17,7 @@ void IntroState::init(){
     //     std::cout << "res/dungeon.ttf not loaded." << std::endl;
     _font = *ResourceManager::instance()->get_font("dungeon");
 
+    //Design and Selector
     _selector.setRadius(10.f);
     _selector.setPosition(20, 110);
     _selector.setFillColor(sf::Color(255,255,255));
@@ -33,7 +34,6 @@ void IntroState::init(){
     _start.setCharacterSize(30);
     _quit.setCharacterSize(30);
 
-
     _title.setColor(sf::Color(255,255,255));
     _start.setColor(sf::Color(255,255,255));
     _quit.setColor(sf::Color(255,255,255));
@@ -42,8 +42,16 @@ void IntroState::init(){
     _start.setPosition(50, 100);
     _quit.setPosition(50, 150);
 
+    //Audio management
+    sf::SoundBuffer buffer;
+    buffer.loadFromFile("res/sfx/Button_Up.wav");   _btn_up.setBuffer(buffer);
+    buffer.loadFromFile("res/sfx/Button_Down.wav"); _btn_down.setBuffer(buffer);
+
+    // if(!buffer.loadFromFile("res/sfx/Button_Up.wav"))
+    //     std::cout << "res/sfx/Button_Up.wav" << std::endl;
 
 }
+
 void IntroState::cleanup(){
 
 }
@@ -74,6 +82,7 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
         if(_menu_item > _TOTAL_MENU_ITEMS) _menu_item = 0;
 
         move_selector(_menu_item);
+        _btn_up.play();
     }
     if(_input.key_pressed(sf::Keyboard::Down) || _input.key_pressed(sf::Keyboard::S))
     {
@@ -81,6 +90,7 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
         if(_menu_item < 0) _menu_item = _TOTAL_MENU_ITEMS;
 
         move_selector(_menu_item);
+        _btn_down.play();
     }
 
     std::cout << _menu_item << " ";

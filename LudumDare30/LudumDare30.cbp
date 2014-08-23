@@ -44,7 +44,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="src/InputHandler.h" />
 		<Unit filename="src/animatedsprite.cpp" />
 		<Unit filename="src/animatedsprite.h" />
 		<Unit filename="src/animation.cpp" />
@@ -55,6 +54,8 @@
 		<Unit filename="src/gameengine.h" />
 		<Unit filename="src/gamemap.cpp" />
 		<Unit filename="src/gamemap.h" />
+		<Unit filename="src/gamestate.cpp" />
+		<Unit filename="src/gamestate.h" />
 		<Unit filename="src/inputhandler.cpp" />
 		<Unit filename="src/inputhandler.h" />
 		<Unit filename="src/introstate.cpp" />
