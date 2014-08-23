@@ -8,9 +8,10 @@ private:
 protected:
 	Tile(){}
 public:
-	virtual void handle_event(GameEngine* game) = 0;
-	virtual void update(GameEngine* game) = 0;
-	virtual void draw(GameEngine* game) = 0;
+	virtual ~Tile(){}
+	virtual void draw(sf::RenderWindow* window, int x, int y) = 0;
+    virtual void update(sf::Time deltaTime) = 0;
+	virtual void handle_event(sf::Event event) = 0;
 };
 
 class TileType {

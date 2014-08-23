@@ -4,12 +4,14 @@
 #include <SFML/Graphics.hpp>
 #include "state.h"
 #include "../entities/player.h"
+#include "../gamemap.h"
 #include "../inputhandler.h"
 
 class GameState : public State{
 private:
 	InputHandler _input;
 	Player _player;
+	GameMap _map;
 
 	sf::Font _font;
 	sf::Text _msg;

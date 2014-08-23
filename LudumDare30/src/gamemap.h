@@ -27,6 +27,10 @@ public:
 	void generate_map(const std::string& filename);
 
 	Tile* get(int x, int y) const;
+
+	void draw(sf::RenderWindow* window);
+    void update(sf::Time deltaTime);
+	void handle_event(sf::Event event);
 };
 
 

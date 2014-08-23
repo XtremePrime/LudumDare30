@@ -1,4 +1,5 @@
 #include "gamestate.h"
+#include "../tiles/grasstile.h"
 #include <SFML/Window.hpp>
 #include <iostream>
 
@@ -15,7 +16,11 @@ void GameState::init(){
     //Font errorproofing
     // if(!_font.loadFromFile("res/dungeon.ttf"))
     //     std::cout << "res/dungeon.ttf not loaded." << std::endl;
-    _font = *ResourceManager::instance()->get_font("dungeon");
+    ResourceManager* res = ResourceManager::instance();
+    _font = *res->get_font("dungeon");
+
+    _map.register_type(new GrassTileType());
+    _map.generate_map("map1");
 }
 void GameState::cleanup(){
 
@@ -41,6 +46,7 @@ void GameState::update(GameEngine* game, sf::Time delta){
 }
 void GameState::draw(GameEngine* game){
     _player.draw(game->get_window());
+    _map.draw(game->get_window());
 }
 
 void GameState::pause(){

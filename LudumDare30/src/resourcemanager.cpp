@@ -136,7 +136,7 @@ string ResourceManager::get_font_filename(string request){
 }
 string ResourceManager::get_image_filename(string request){
 	stringstream ss;
-	ss << _base_dir << "/img/" << request << ".png";
+	ss << _base_dir << "/image/" << request << ".png";
 
 	string filename = ss.str();
 	return ss.str();

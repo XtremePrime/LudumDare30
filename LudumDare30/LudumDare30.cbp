@@ -68,7 +68,6 @@
 		<Unit filename="src/states/introstate.cpp" />
 		<Unit filename="src/states/introstate.h" />
 		<Unit filename="src/states/state.h" />
-		<Unit filename="src/tile.h" />
 		<Unit filename="src/tiles/grasstile.cpp" />
 		<Unit filename="src/tiles/grasstile.h" />
 		<Unit filename="src/tiles/tile.h" />
