@@ -3,7 +3,7 @@
 
 class InputHandler
 {
-private:
+public:
 	void update(sf::Event event);
 
 	bool key_pressed(sf::Keyboard::Key key);
@@ -14,6 +14,6 @@ private:
 
 	bool key_down(sf::Keyboard::Key key);
 	bool key_down(std::vector<sf::Keyboard::Key> keys);
-public:
-	sf::Event event;
+private:
+	sf::Event _event;
 };
