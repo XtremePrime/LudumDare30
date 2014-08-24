@@ -13,8 +13,8 @@ Player::Player()
     // _sprite.setTexture(_texture);
     // _sprite.setScale(width/_sprite.getLocalBounds().width, height/_sprite.getLocalBounds().height);
     ResourceManager* res = ResourceManager::instance();
-    _animations[AnimationState::IDLE] = res->get_animation("player", "idle", 32, 32);
-    _animations[AnimationState::WALK] = res->get_animation("player", "walk", 32, 32);
+    _animations[AnimationState::IDLE] = res->get_animation("player", "idle", 32, 64);
+    _animations[AnimationState::WALK] = res->get_animation("player", "walk", 32, 64);
 
     //AnimatedSprite* sprite = new AnimatedSprite();
 
@@ -23,7 +23,7 @@ Player::Player()
     _sprite.setPosition(sf::Vector2f(100, 100));
     _sprite.play();
     _sprite.set_looped(true);
-    _speed = 50;
+    _speed = 80;
 }
 
 Player::~Player()
