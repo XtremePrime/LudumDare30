@@ -7,21 +7,21 @@
 #include "resourcemanager.h"
 using namespace std;
 
-const int GameMap::TILE_ROW = 15;
-const int GameMap::TILE_COL = 20;
+const int GameMap::TILE_ROW_COUNT = 15;
+const int GameMap::TILE_COL_COUNT = 20;
 const int GameMap::TILE_WIDTH = 32;
 const int GameMap::TILE_HEIGHT = 32;
 
 GameMap::GameMap(){
- 	_tiles = new Tile*[TILE_COL*TILE_ROW];
-	for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
+ 	_tiles = new Tile*[TILE_COL_COUNT*TILE_ROW_COUNT];
+	for (int i = 0; i < TILE_COL_COUNT*TILE_ROW_COUNT; ++i)
 	{
 		_tiles[i] = nullptr;
 	}
 }
 GameMap::~GameMap(){
 	if(_tiles != nullptr){
-		for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
+		for (int i = 0; i < TILE_COL_COUNT*TILE_ROW_COUNT; ++i)
 		{
 			if(_tiles[i] != nullptr){
 				delete _tiles[i];
@@ -33,7 +33,7 @@ GameMap::~GameMap(){
 	}
 }
 void GameMap::draw(sf::RenderWindow* window){
-	for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
+	for (int i = 0; i < TILE_COL_COUNT*TILE_ROW_COUNT; ++i)
 	{
 	    if(_tiles[i] != nullptr){
             _tiles[i]->draw(window);
@@ -41,7 +41,7 @@ void GameMap::draw(sf::RenderWindow* window){
 	}
 }
 void GameMap::update(sf::Time deltaTime){
-	for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
+	for (int i = 0; i < TILE_COL_COUNT*TILE_ROW_COUNT; ++i)
 	{
 		if(_tiles[i] != nullptr){
             _tiles[i]->update(deltaTime);
@@ -49,7 +49,7 @@ void GameMap::update(sf::Time deltaTime){
 	}
 }
 void GameMap::handle_events(InputHandler &event){
-	for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
+	for (int i = 0; i < TILE_COL_COUNT*TILE_ROW_COUNT; ++i)
 	{
 		if(_tiles[i] != nullptr){
             _tiles[i]->handle_event(event);
@@ -58,11 +58,10 @@ void GameMap::handle_events(InputHandler &event){
 }
 
 void GameMap::set(int x, int y, Tile* tile){
-	cout << x << ", " << y << " = " << y * TILE_COL + x << endl;
-    _tiles[y * TILE_COL + x] = tile;
+    _tiles[y * TILE_COL_COUNT + x] = tile;
 }
 Tile* GameMap::get(int x, int y) const{
-    return _tiles[y * TILE_ROW + x];
+    return _tiles[y * TILE_ROW_COUNT + x];
 }
 void GameMap::generate_map(const string& map){
 	ResourceManager* res = ResourceManager::instance();

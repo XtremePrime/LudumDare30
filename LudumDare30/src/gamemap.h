@@ -9,8 +9,8 @@ class TileType;
 class InputHandler;
 class GameMap {
 private:
-	static const int TILE_ROW;
-	static const int TILE_COL;
+	static const int TILE_ROW_COUNT;
+	static const int TILE_COL_COUNT;
 	static const int TILE_WIDTH;
 	static const int TILE_HEIGHT;
 

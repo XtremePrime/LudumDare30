@@ -59,7 +59,7 @@ bool GrassTileType::has_color(sf::Color color){
 		return true;
 	}
 	else if(color == sf::Color(0, 230, 0, 255)){
-		//- Corner top left grass tile
+		//- Corner top right grass tile
 		_type = 2;
 		return true;
 	}
@@ -68,12 +68,25 @@ bool GrassTileType::has_color(sf::Color color){
 		_type = 4;
 		return true;
 	}
+	else if(color == sf::Color(0, 140, 0, 255)){
+		//- Corner left ground beneath grass tile
+		_type = 3;
+		return true;
+	}
+	else if(color == sf::Color(0, 160, 0, 255)){
+		//- Corner right ground beneath grass tile
+		_type = 5;
+		return true;
+	}
+	else if(color == sf::Color(0, 60, 0, 255)){
+		//- Bottom ground
+		_type = 6;
+		return true;
+	}
 	_type = 0;
 	return false;
 }
 Tile* GrassTileType::make_tile(int x, int y, int w, int h){
-	if(x > 500)
-		cout << "drawing" << endl;
 	GrassTile* tile = new GrassTile(w, h, _type);
 	tile->set_position(sf::Vector2u(x, y));
 	_type = 0;
