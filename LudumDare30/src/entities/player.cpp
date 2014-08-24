@@ -30,11 +30,11 @@ Player::~Player()
 {
     //dtor
 }
-void Player::handle_events(InputHandler& handler){
+void Player::handle_events(InputHandler &handler){
     //- Cancel out the movement
     _movement = sf::Vector2f(0.f, 0.f);
 
-    if(handler.key_pressed(sf::Keyboard::Left) || handler.key_pressed(sf::Keyboard::A)){
+    if(handler.key_down(sf::Keyboard::Left) || handler.key_down(sf::Keyboard::A)){
         //- Move player left
         _sprite.play(_animations[AnimationState::WALK]);
         _movement.x -= _speed;
@@ -42,7 +42,7 @@ void Player::handle_events(InputHandler& handler){
         _sprite.set_looped(true);
         std::cout << "Reached 1" << std::endl; 
     }
-    else if(handler.key_pressed(vector<sf::Keyboard::Key>({ sf::Keyboard::D, sf::Keyboard::Right }))){
+    else if(handler.key_down(vector<sf::Keyboard::Key>({ sf::Keyboard::D, sf::Keyboard::Right }))){
         //- Move player right
         _sprite.play(_animations[AnimationState::WALK]);
         _movement.x += _speed;
@@ -53,6 +53,16 @@ void Player::handle_events(InputHandler& handler){
     else{
         _sprite.play(_animations[AnimationState::IDLE]);
     }
+
+    if(handler.key_down(sf::Keyboard::T))
+    {
+        std::cout << "Attack!" << std::endl;
+    }
+    if(handler.key_down(sf::Keyboard::C))
+    {
+        std::cout << "RANDOM!" << std::endl;
+    }
+
 }
 
 void Player::update(sf::Time deltaTime)

@@ -44,7 +44,7 @@ void IntroState::init(){
 
     //Audio management
     _btn_up_bfr.loadFromFile("res/sfx/Button_Up.wav");   _btn_up.setBuffer(_btn_up_bfr);
-    _btn_up_bfr.loadFromFile("res/sfx/Button_Down.wav"); _btn_down.setBuffer(_btn_down_bfr);
+    _btn_down_bfr.loadFromFile("res/sfx/Button_Down.wav"); _btn_down.setBuffer(_btn_down_bfr);
 
     // if(!buffer.loadFromFile("res/sfx/Button_Up.wav"))
     //     std::cout << "res/sfx/Button_Up.wav" << std::endl;
@@ -82,6 +82,7 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
 
         move_selector(_menu_item);
         _btn_up.play();
+        std::cout << "Start!" << std::endl;
     }
     if(_input.key_pressed(sf::Keyboard::Down) || _input.key_pressed(sf::Keyboard::S))
     {
@@ -90,6 +91,7 @@ void IntroState::handle_events(GameEngine* game, sf::Event event){
 
         move_selector(_menu_item);
         _btn_down.play();
+        std::cout << "Quit!" << std::endl;
     }
 
     std::cout << _menu_item << " ";
