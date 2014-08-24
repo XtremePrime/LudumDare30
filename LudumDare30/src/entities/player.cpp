@@ -54,7 +54,7 @@ void Player::handle_events(InputHandler &handler){
         _sprite.play(_animations[AnimationState::IDLE]);
     }
 
-    if(handler.key_down(sf::Keyboard::T))
+    if(handler.key_released(sf::Keyboard::T))
     {
         std::cout << "Attack!" << std::endl;
     }
