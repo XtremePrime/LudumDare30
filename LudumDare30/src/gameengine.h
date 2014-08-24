@@ -16,6 +16,7 @@ private:
     ResourceManager* _resource;
 	bool _running;
 	std::vector<State*> _state_stack;
+	sf::Event _event;
 
 public:
 	static const int GAME_WIDTH = 640, GAME_HEIGHT = 480;

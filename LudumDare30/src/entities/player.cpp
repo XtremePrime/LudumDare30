@@ -40,7 +40,7 @@ void Player::handle_events(InputHandler &handler){
         _movement.x -= _speed;
         _sprite.set_flipped(true);
         _sprite.set_looped(true);
-        std::cout << "Reached 1" << std::endl; 
+        std::cout << "Reached 1" << std::endl;
     }
     else if(handler.key_down(vector<sf::Keyboard::Key>({ sf::Keyboard::D, sf::Keyboard::Right }))){
         //- Move player right
