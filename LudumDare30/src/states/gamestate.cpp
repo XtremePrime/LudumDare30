@@ -29,6 +29,7 @@ void GameState::cleanup(){
 void GameState::handle_events(GameEngine* game, sf::Event event){
     //_input.update(event);
     _player.handle_events(_input);
+    _map.handle_events(_input);
     _input.update(event);
 
     //if(_input.key_pressed(sf::Keyboard::Up) || _input.key_pressed(sf::Keyboard::W))
@@ -44,6 +45,7 @@ void GameState::handle_events(GameEngine* game, sf::Event event){
 }
 void GameState::update(GameEngine* game, sf::Time delta){
     _player.update(delta);
+    _map.update(delta);
 }
 void GameState::draw(GameEngine* game){
     _player.draw(game->get_window());

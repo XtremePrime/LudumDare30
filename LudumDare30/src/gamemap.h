@@ -6,6 +6,7 @@
 
 class Tile;
 class TileType;
+class InputHandler;
 class GameMap {
 private:
 	static const int TILE_ROW;
@@ -30,7 +31,7 @@ public:
 
 	void draw(sf::RenderWindow* window);
     void update(sf::Time deltaTime);
-	void handle_event(sf::Event event);
+	void handle_events(InputHandler &event);
 };
 
 

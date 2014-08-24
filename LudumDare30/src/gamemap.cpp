@@ -35,11 +35,8 @@ GameMap::~GameMap(){
 void GameMap::draw(sf::RenderWindow* window){
 	for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
 	{
-		int x = (i%TILE_COL)*TILE_WIDTH;
-		int y = (i/TILE_ROW)*TILE_HEIGHT;
-
 	    if(_tiles[i] != nullptr){
-            _tiles[i]->draw(window, x, y);
+            _tiles[i]->draw(window);
 	    }
 	}
 }
@@ -51,7 +48,7 @@ void GameMap::update(sf::Time deltaTime){
 		}
 	}
 }
-void GameMap::handle_event(sf::Event event){
+void GameMap::handle_events(InputHandler &event){
 	for (int i = 0; i < TILE_COL*TILE_ROW; ++i)
 	{
 		if(_tiles[i] != nullptr){
@@ -61,29 +58,34 @@ void GameMap::handle_event(sf::Event event){
 }
 
 void GameMap::set(int x, int y, Tile* tile){
-    _tiles[y * TILE_ROW + x] = tile;
+	cout << x << ", " << y << " = " << y * TILE_COL + x << endl;
+    _tiles[y * TILE_COL + x] = tile;
 }
 Tile* GameMap::get(int x, int y) const{
     return _tiles[y * TILE_ROW + x];
 }
 void GameMap::generate_map(const string& map){
 	ResourceManager* res = ResourceManager::instance();
-	sf::Image img = *res->get_image(map);
+	sf::Image* img = res->get_image(map);
 
-	sf::Vector2u size = img.getSize();
+	sf::Vector2u size = img->getSize();
 	for (size_t y = 0; y < size.y; ++y){
 		for (size_t x = 0; x < size.x; ++x)
 		{
 			bool found = false;
-			sf::Color color = img.getPixel(x, y);
+			sf::Color color = img->getPixel(x, y);
+
 			if(color.a == 0) {
 				//- Air tiles, ignoring
 				continue;
 			}
+
+			int pixel_x = x*TILE_WIDTH;
+			int pixel_y = y*TILE_HEIGHT;
 			for (size_t i = 0; i < _registered_tile_types.size(); ++i)
 			{
 				if(_registered_tile_types[i]->has_color(color)){
-					set(x, y, _registered_tile_types[i]->make_tile());
+					set(x, y, _registered_tile_types[i]->make_tile(pixel_x, pixel_y, TILE_WIDTH, TILE_HEIGHT));
 					found = true;
 					break;
 				}
@@ -92,4 +94,6 @@ void GameMap::generate_map(const string& map){
 
 		}
 	}
+	delete img;
+	img = nullptr;
 }

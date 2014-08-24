@@ -6,21 +6,24 @@ class AnimatedSprite;
 class GrassTile : public Tile{
 private:
 	AnimatedSprite* _sprite;
+	void init(int w, int h, int type);
 public:
 	GrassTile();
+	GrassTile(int w, int h, int type);
 	~GrassTile();
-	virtual void draw(sf::RenderWindow* window, int x, int y);
+	virtual void draw(sf::RenderWindow* window);
     virtual void update(sf::Time deltaTime);
-	virtual void handle_event(sf::Event event);
+	virtual void handle_event(InputHandler &event);
 };
 
 class GrassTileType : public TileType {
 private:
+	int _type;
 public:
 	GrassTileType();
 	~GrassTileType();
 	virtual bool has_color(sf::Color color);
-	virtual Tile* make_tile();
+	virtual Tile* make_tile(int x, int y, int w, int h);
 };
 
 #endif // GRASSTILE_H
